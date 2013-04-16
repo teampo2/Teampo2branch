@@ -1,0 +1,3 @@
+node emailmonitor.js
+
+pause

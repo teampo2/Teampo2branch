@@ -1,0 +1,34 @@
+<script>
+var xmlhttp;
+
+function execute($method,$url,$param)
+{
+xmlhttp=new XMLHttpRequest();
+xmlhttp.open($method,$url,true);
+
+
+// subscribe to this event before you send your request.
+ xmlhttp.onreadystatechange=function() {
+  if (xmlhttp.readyState==4) {
+   //alert the user that a response now exists in the responseTest property.
+   alert(xmlhttp.responseText);
+   // And to view in firebug
+ //  console.log('xhr',xmlhttp)
+  }
+
+  }
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+xmlhttp.send($param);
+
+} 
+
+function go()
+{
+var parameters="To=example@riseuplabs.com&Subject=Hello&Message=Hello&Status=";
+execute('POST','http://localhost:3000/app/email',parameters);
+
+}
+</script>
+<body onload="go();">
+
+asdads

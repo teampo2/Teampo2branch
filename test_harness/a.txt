@@ -1,0 +1,6 @@
+
+  { success: false,
+  message: 'E11000 duplicate key error index: tradesmate-dev.users.$Username_1  dup key: { : "te333st123" }',
+  total: 0 }
+..
+

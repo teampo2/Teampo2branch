@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <fieldset>
+        <legend>Authentication Test</legend>
+        <form action="http://localhost:3000/app/user/authenticate" method="post" id="authenticate-form">
+            <label>Username:</label>
+            <input type="text" id="Username" name="Username" />
+            <label>Password:</label>
+            <input type="password" id="Password" name="Password" />
+            <label>App Key:</label>
+            <input type="text" id="aAppKey" name="AppKey" />
+            <input type="submit" value="Authenticate" />
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Register App</legend>
+        <form action="http://localhost:3000/app/app" method="post" id="create-app-form">
+            <label>AppName:</label>
+            <input type="text" id="AppName" name="AppName" />
+            <label>AppKey:</label>
+            <input type="text" id="rAppKey" name="AppKey" />
+            <input type="submit" value="RegisterApp" />
+        </form>
+    </fieldset>
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/json2.min.js"></script>
+    <script src="Scripts/routes.js"></script>
+</body>
+</html>

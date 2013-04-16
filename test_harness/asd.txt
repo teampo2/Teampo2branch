@@ -1,0 +1,5 @@
+
+D:\Users\teampo2\Documents\Visual Studio 2012\WebSites\WebSite1\test_harness>mocha user-test.js  2>33asd.txt 
+
+  ..
+

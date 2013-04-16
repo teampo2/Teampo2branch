@@ -1,0 +1,25 @@
+{
+    "name": "Tradesmate",
+    "description": "Tradesmate application for app integration.",
+    "version": "0.0.3",
+    "homepage": "http://tradesmate.btekint.com",
+    "author": "Alexander Burias (alexander@btek.com.au)",
+    "private": true,
+    "scripts": {
+      "run": "node app",
+      "test": "make test"
+    },
+  "dependencies": {
+      "express": "3.0.6",
+      "jade": "*",
+      "mongoose": "*",
+      "winston": "*",
+      "winston-loggly": "*",
+      "crypto": "*",
+      "optimist":"*"
+    },
+    "devDependencies": {
+      "mocha": "*",
+      "should": "*"
+    }
+}

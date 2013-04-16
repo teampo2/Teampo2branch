@@ -1,0 +1,33 @@
+  × 3 of 3 tests failed:
+
+  1) User API Test Create a user - POST:
+     AssertionError: expected false to equal true
+      at Object.Assertion.equal (D:\Users\teampo2\Documents\Visual Studio 2012\WebSites\WebSite1\node_modules\should\lib\should.js:303:10)
+      at D:\Users\teampo2\Documents\Visual Studio 2012\WebSites\WebSite1\test_harness\user-test.js:29:39
+      at Request.callback (D:\Users\teampo2\Documents\Visual Studio 2012\WebSites\WebSite1\node_modules\superagent\lib\node\index.js:586:3)
+      at Request.<anonymous> (D:\Users\teampo2\Documents\Visual Studio 2012\WebSites\WebSite1\node_modules\superagent\lib\node\index.js:133:10)
+      at Request.EventEmitter.emit (events.js:95:17)
+      at IncomingMessage.<anonymous> (D:\Users\teampo2\Documents\Visual Studio 2012\WebSites\WebSite1\node_modules\superagent\lib\node\index.js:714:12)
+      at IncomingMessage.EventEmitter.emit (events.js:117:20)
+      at _stream_readable.js:870:14
+      at process._tickCallback (node.js:415:13)
+
+  2) User API Test Get it back again - GET 4f837f7a8f716f933e000095:
+     AssertionError: expected 'text/plain' to include 'application/json'
+      at Object.Assertion.include (D:\Users\teampo2\Documents\Visual Studio 2012\WebSites\WebSite1\node_modules\should\lib\should.js:508:12)
+      at Object.json (D:\Users\teampo2\Documents\Visual Studio 2012\WebSites\WebSite1\node_modules\should\lib\should.js:647:45)
+      at D:\Users\teampo2\Documents\Visual Studio 2012\WebSites\WebSite1\test_harness\user-test.js:49:21
+      at Request.callback (D:\Users\teampo2\Documents\Visual Studio 2012\WebSites\WebSite1\node_modules\superagent\lib\node\index.js:586:3)
+      at Request.<anonymous> (D:\Users\teampo2\Documents\Visual Studio 2012\WebSites\WebSite1\node_modules\superagent\lib\node\index.js:133:10)
+      at Request.EventEmitter.emit (events.js:95:17)
+      at IncomingMessage.<anonymous> (D:\Users\teampo2\Documents\Visual Studio 2012\WebSites\WebSite1\node_modules\superagent\lib\node\index.js:714:12)
+      at IncomingMessage.EventEmitter.emit (events.js:117:20)
+      at _stream_readable.js:870:14
+      at process._tickCallback (node.js:415:13)
+
+  3) User API Test Modify a user - PUT 4f837f7a8f716f933e000095:
+     Error: timeout of 2000ms exceeded
+      at null.<anonymous> (D:\Users\teampo2\AppData\Roaming\npm\node_modules\mocha\lib\runnable.js:167:14)
+      at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)
+
+

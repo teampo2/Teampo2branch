@@ -1,0 +1,6 @@
+TRADESMATE WEB SERVICES FOLDER STRUCTURE
+
+MODEL: 
+	A Location for all Database Model Mapping and Repository for Export and for use in our application.
+
+THE REST: Will still need to be determined.
