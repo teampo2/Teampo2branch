@@ -18,12 +18,11 @@ describe('User API Test', function(){
   
   it('Create a user - POST', function(done){
     request
-      .post('http://localhost:3000/app/mediamanager')
+      .post('http://localhost:3000/app/rates')
       .send({
           OrganisationId: randomObjectId(),
           Role: "gfdgdfgfd",
           ChargeHourly: true,
-
           Rate: 2
       })
 

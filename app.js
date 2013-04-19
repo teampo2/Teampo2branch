@@ -217,12 +217,14 @@ var userController = require("./controllers/userController");
 var locationController = require("./controllers/locationController");
 var servicedirectoryController = require("./controllers/servicedirectoryController");
 var emailController = require("./controllers/emailController");
+var mediamanagerController = require("./controllers/mediamanagerController");
 
 
 // Get temporary models
 var AddressModel = require("./models/address").Address;
 var ServiceModel = require("./models/servicedirectory").Service;
 var EmailModel = require("./models/email").Email;
+var MediaManagerModel = require("./models/mediamanager").MediaManager;
 
 
 var AuditModel = require("./models/audit").Audit;
@@ -236,8 +238,6 @@ var OrganisationModel = require("./models/organisation").Organisation;
 var UserModel = require("./models/user").User;
 var AppModel = require("./models/app").App;
 var UserTrackingProfileModel = require("./models/userTrackingProfile").UserTrackingProfile;
-
-var fileupload = require('fileupload').createFileUpload('./attachments').middleware
 
 
 
@@ -264,6 +264,7 @@ res.send('500: Internal Server Error', 500);
  }
 );
 
+/*
 //
 // Generic Route
 //
@@ -279,6 +280,7 @@ app.get(pRoutePrefix + '/*', function(req, res, next){
     res.send({success: false, message: "Unauthorized Access!", total: 0, data: {}});    
   }
 });
+*/
 
 // API is alive
 app.get(pRoutePrefix + '/alive', function (req, res) {
@@ -294,10 +296,41 @@ app.post(pRoutePrefix + '/app', function(req,res)      { gc.create(AppModel, req
 app.put (pRoutePrefix + '/app/:id', function(req,res)  { gc.update(AppModel, req, res) }); //Update
 app.del (pRoutePrefix + '/app/:id', function(req,res)  { gc.delete(AppModel, req, res) }); //Delete
 
+var fileupload = require('fileupload').createFileUpload('./attachments').middleware
+
+
+
+
 //Email
 //app.post(pRoutePrefix + '/email', function(req,res)      { emailController.sendmail(EmailModel, req, res) }); //Create
  app.post(pRoutePrefix + '/email', fileupload, function(req, res) {
    emailController.sendmail(EmailModel, req, res) });
+
+ var temp = require('fileupload');
+
+
+// Media Manager
+
+ var mediafileupload = temp.createFileUpload('./mediamanager').middleware;
+
+ app.post(pRoutePrefix + '/mediamanager', mediafileupload,
+     function (req, res) {
+
+         mediamanagerController.postmedia(MediaManagerModel, req, res, temp.filesuploaded)
+ });
+
+
+ app.get(pRoutePrefix + '/mediamanager',
+     function (req, res) {
+     gc.list(MediaManagerModel, req, res)
+     }); //Get filtered
+
+
+ app.get(pRoutePrefix + '/mediamanager/viewmedia', function (req, res) { mediamanagerController.viewmedia(req, res) }); //Get one
+ app.get(pRoutePrefix + '/mediamanager/:id', function (req, res) { mediamanagerController.get(MediaManagerModel, req, res,pPort) }); //Get one
+ app.put(pRoutePrefix + '/mediamanager/:id', function (req, res) { mediamanagerController.update(MediaManagerModel, req, res) }); //Update
+ app.del(pRoutePrefix + '/mediamanager/:id', function (req, res) { mediamanagerController.delete(MediaManagerModel, req, res) }); //Delete
+
 
 // Address
 app.get (pRoutePrefix + '/address', function(req,res)      { gc.list(AddressModel, req, res)   }); //Get filtered
@@ -387,7 +420,6 @@ app.put(pRoutePrefix + '/member/:id', function (req, res) { gc.update(MemberMode
 app.del(pRoutePrefix + '/member/:id', function (req, res) { gc.delete(MemberModel, req, res) }); //Delete
 
 
-
 // User authentication
 app.post(pRoutePrefix + "/user/authenticate", function(req, res){
   userController.Authenticate(req.body.Username, req.body.Password, req.body.AppKey, function(user, token, appKey){
@@ -409,6 +441,7 @@ app.post(pRoutePrefix + "/user/authenticate", function(req, res){
     }
   });
 });
+
 
 // User Tracking Profile
 app.get (pRoutePrefix + '/userTrackingProfile', function(req,res)      { gc.list(UserTrackingProfileModel, req, res)   }); //Get filtered
